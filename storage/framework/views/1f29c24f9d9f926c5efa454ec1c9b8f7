@@ -1,0 +1,57 @@
+
+
+<?php $__env->startSection('content'); ?>
+<div class="page-content row">
+
+	 
+ 	<div class="page-content-wrapper">   
+	   <div class="toolbar-line">
+	   		<a href="<?php echo e(URL::to('core/groups?return='.$return)); ?>" class="tips btn btn-xs btn-default" title="<?php echo e(Lang::get('core.btn_back')); ?>"><i class="fa fa-arrow-circle-left"></i>&nbsp;<?php echo e(Lang::get('core.btn_back')); ?></a>
+			<?php if($access['is_add'] ==1): ?>
+	   		<a href="<?php echo e(URL::to('core/groups/update/'.$id.'?return='.$return)); ?>" class="tips btn btn-xs btn-primary" title="<?php echo e(Lang::get('core.btn_edit')); ?>"><i class="fa fa-edit"></i>&nbsp;<?php echo e(Lang::get('core.btn_edit')); ?></a>
+			<?php endif; ?>  		   	  
+		</div>
+<div class="sbox animated fadeInRight">
+	<div class="sbox-title"> <h4> <i class="fa fa-table"></i> <?php echo $pageTitle ;?> <small><?php echo e($pageNote); ?></small></h4></div>
+	<div class="sbox-content"> 	
+
+
+	
+	<table class="table table-striped table-bordered" >
+		<tbody>	
+	
+					<tr>
+						<td width='30%' class='label-view text-right'>ID</td>
+						<td><?php echo e($row->group_id); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Name</td>
+						<td><?php echo e($row->name); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Description</td>
+						<td><?php echo e($row->description); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Level</td>
+						<td><?php echo e($row->level); ?> </td>
+						
+					</tr>
+				
+		</tbody>	
+	</table>    
+	
+	</div>
+</div>	
+
+	</div>
+</div>
+<?php $__env->stopSection(); ?>	  
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

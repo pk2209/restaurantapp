@@ -1,0 +1,33 @@
+<section class="page-header">
+	<div class="container">
+		<h1> <?php echo e(strtoupper($pageTitle)); ?></h1>
+		<!-- breadcrumbs -->
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li class="active"><?php echo e($pageTitle); ?></li>
+		</ol><!-- /breadcrumbs -->
+	</div>
+</section>
+<div class="container " style="padding-top: 30px;">
+	<div class="row">
+
+		<div class="col-md-3">
+			<h3><i class="fa fa-tags"></i> Article Categories </h3>
+			<?php echo PostHelpers::cloudtags(); ?>
+
+			<hr />
+
+			<h3><i class="fa fa-tags"></i> Latest Post </h3>
+			<?php echo PostHelpers::latestpost(); ?>
+
+			<hr />
+
+		</div>
+
+		<div class="col-md-9">
+			<?php echo $content; ?>
+
+		</div>
+				
+	</div>
+</div>

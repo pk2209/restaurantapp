@@ -1,0 +1,327 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="page-content row">
+    <!-- Page header -->
+
+ 
+ 	<div class="page-content-wrapper m-t">
+
+
+<div class="sbox">
+	<div class="sbox-title"> 
+		<div class="sbox-tools pull-left" >
+			<a href="<?php echo e(url($pageModule.'?return='.$return)); ?>" class="tips btn btn-xs btn-default"  title="<?php echo e(Lang::get('core.btn_back')); ?>" ><i class="fa  fa-arrow-left"></i></a> 
+		</div>
+		<div class="sbox-tools " >
+			<?php if(Session::get('gid') ==1): ?>
+				<a href="<?php echo e(URL::to('sximo/module/config/'.$pageModule)); ?>" class="tips btn btn-xs btn-default" title=" <?php echo e(Lang::get('core.btn_config')); ?>" ><i class="fa  fa-ellipsis-v"></i></a>
+			<?php endif; ?> 			
+		</div> 
+
+	</div>
+	<div class="sbox-content"> 	
+
+		<ul class="parsley-error-list">
+			<?php foreach($errors->all() as $error): ?>
+				<li><?php echo e($error); ?></li>
+			<?php endforeach; ?>
+		</ul>	
+
+		 <?php echo Form::open(array('url'=>'recipes/save?return='.$return, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')); ?>
+
+<div class="col-md-6">
+						<fieldset><legend> Recipes Details</legend>
+				<?php echo Form::hidden('id', $row['id']); ?>					
+									  <div class="form-group  " >
+										<label for="Name" class=" control-label col-md-4 text-left"> Name </label>
+										<div class="col-md-7">
+										  <input  type='text' name='name' id='name' value='<?php echo e($row['name']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Courses" class=" control-label col-md-4 text-left"> Courses </label>
+										<div class="col-md-7">
+										  <select name='course_id[]' multiple rows='5' id='course_id' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Restaurants" class=" control-label col-md-4 text-left"> Restaurants </label>
+										<div class="col-md-7">
+										  <select name='restaurant_id' rows='5' id='restaurant_id' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Dish" class=" control-label col-md-4 text-left"> Dish </label>
+										<div class="col-md-7">
+										  <textarea name='dish' rows='5' id='dish' class='form-control '  
+				           ><?php echo e($row['dish']); ?></textarea> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Seasons" class=" control-label col-md-4 text-left"> Seasons </label>
+										<div class="col-md-7">
+										  
+					<?php $seasons = explode(',',$row['seasons']);
+					$seasons_opt = array( 'Spring' => 'Spring' , ); ?>
+					<select name='seasons' rows='5'   class='select2 ' id='seasons'  > 
+						<?php 
+						foreach($seasons_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['seasons'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Main Ingredients" class=" control-label col-md-4 text-left"> Main Ingredients </label>
+										<div class="col-md-7">
+										  <select name='main_ingredients[]' multiple rows='5' id='main_ingredients' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Prep Time" class=" control-label col-md-4 text-left"> Prep Time </label>
+										<div class="col-md-7">
+										  <input  type='text' name='prep_time' id='prep_time' value='<?php echo e($row['prep_time']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Cooking Time" class=" control-label col-md-4 text-left"> Cooking Time </label>
+										<div class="col-md-7">
+										  <input  type='text' name='cooking_time' id='cooking_time' value='<?php echo e($row['cooking_time']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Status" class=" control-label col-md-4 text-left"> Status </label>
+										<div class="col-md-7">
+										  <input  type='text' name='status' id='status' value='<?php echo e($row['status']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> <?php echo Form::hidden('created_at', $row['created_at']); ?><?php echo Form::hidden('updated_at', $row['updated_at']); ?></fieldset>
+			</div>
+			
+			<div class="col-md-6">
+						<fieldset><legend> Recipes Details</legend>
+									
+									  <div class="form-group  " >
+										<label for="Cuisine" class=" control-label col-md-4 text-left"> Cuisine </label>
+										<div class="col-md-7">
+										  <select name='cuisine[]' multiple rows='5' id='cuisine' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Technique" class=" control-label col-md-4 text-left"> Technique </label>
+										<div class="col-md-7">
+										  <select name='technique[]' multiple rows='5' id='technique' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Cooking Style" class=" control-label col-md-4 text-left"> Cooking Style </label>
+										<div class="col-md-7">
+										  <select name='cooking_style[]' multiple rows='5' id='cooking_style' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Nutrition" class=" control-label col-md-4 text-left"> Nutrition </label>
+										<div class="col-md-7">
+										  <select name='nutrition[]' multiple rows='5' id='nutrition' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Chef" class=" control-label col-md-4 text-left"> Chef </label>
+										<div class="col-md-7">
+										  <input  type='text' name='chef' id='chef' value='<?php echo e($row['chef']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Show Episode" class=" control-label col-md-4 text-left"> Show Episode </label>
+										<div class="col-md-7">
+										  <input  type='text' name='show_episode' id='show_episode' value='<?php echo e($row['show_episode']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Level" class=" control-label col-md-4 text-left"> Level </label>
+										<div class="col-md-7">
+										  <input  type='text' name='level' id='level' value='<?php echo e($row['level']); ?>' 
+						     class='form-control ' /> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Serving" class=" control-label col-md-4 text-left"> Serving </label>
+										<div class="col-md-7">
+										  
+					<?php $serving = explode(',',$row['serving']);
+					$serving_opt = array( '1' => '1' ,  '2' => '2' , ); ?>
+					<select name='serving' rows='5'   class='select2 ' id='serving'  > 
+						<?php 
+						foreach($serving_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['serving'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Prepration" class=" control-label col-md-4 text-left"> Prepration </label>
+										<div class="col-md-7">
+										  <textarea name='prepration' rows='5' id='prepration' class='form-control '  
+				           ><?php echo e($row['prepration']); ?></textarea> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Cooking" class=" control-label col-md-4 text-left"> Cooking </label>
+										<div class="col-md-7">
+										  <textarea name='cooking' rows='5' id='cooking' class='form-control '  
+				           ><?php echo e($row['cooking']); ?></textarea> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Images" class=" control-label col-md-4 text-left"> Images </label>
+										<div class="col-md-7">
+										  <input  type='file' name='images' id='images' <?php if($row['images'] ==''): ?> class='required' <?php endif; ?> style='width:150px !important;'  />
+					 	<div >
+						<?php echo SiteHelpers::showUploadedFile($row['images'],'/uploads/images/'); ?>
+
+						
+						</div>					
+					 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Nutritional Analysis" class=" control-label col-md-4 text-left"> Nutritional Analysis </label>
+										<div class="col-md-7">
+										  <textarea name='nutritional_analysis' rows='5' id='nutritional_analysis' class='form-control '  
+				           ><?php echo e($row['nutritional_analysis']); ?></textarea> 
+										 </div> 
+										 <div class="col-md-1">
+										 	
+										 </div>
+									  </div> </fieldset>
+			</div>
+			
+			
+
+		
+			<div style="clear:both"></div>	
+				
+					
+				  <div class="form-group">
+					<label class="col-sm-4 text-right">&nbsp;</label>
+					<div class="col-sm-8">	
+					<button type="submit" name="apply" class="btn btn-info btn-sm" ><i class="icon-checkmark-circle2"></i> <?php echo e(Lang::get('core.sb_apply')); ?></button>
+					<button type="submit" name="submit" class="btn btn-primary btn-sm" ><i class="icon-bubble-check"></i> <?php echo e(Lang::get('core.sb_save')); ?></button>
+					<button type="button" onclick="location.href='<?php echo e(URL::to('recipes?return='.$return)); ?>' " class="btn btn-warning btn-sm "><i class="icon-cancel-circle2 "></i>  <?php echo e(Lang::get('core.sb_cancel')); ?> </button>
+					</div>	  
+			
+				  </div> 
+		 
+		 <?php echo Form::close(); ?>
+
+	</div>
+</div>		 
+</div>	
+</div>			 
+   <script type="text/javascript">
+	$(document).ready(function() { 
+		
+		
+		$("#course_id").jCombo("<?php echo url('recipes/comboselect?filter=tb_course:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["course_id"]); ?>' });
+		
+		$("#restaurant_id").jCombo("<?php echo url('recipes/comboselect?filter=tb_restaurants:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["restaurant_id"]); ?>' });
+		
+		$("#main_ingredients").jCombo("<?php echo url('recipes/comboselect?filter=tb_ingredients:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["main_ingredients"]); ?>' });
+		
+		$("#cuisine").jCombo("<?php echo url('recipes/comboselect?filter=tb_cuisine:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["cuisine"]); ?>' });
+		
+		$("#technique").jCombo("<?php echo url('recipes/comboselect?filter=tb_technique:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["technique"]); ?>' });
+		
+		$("#cooking_style").jCombo("<?php echo url('recipes/comboselect?filter=tb_cookingstyle:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["cooking_style"]); ?>' });
+		
+		$("#nutrition").jCombo("<?php echo url('recipes/comboselect?filter=tb_nutrition:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["nutrition"]); ?>' });
+		 
+
+		$('.removeMultiFiles').on('click',function(){
+			var removeUrl = '<?php echo e(url("recipes/removefiles?file=")); ?>'+$(this).attr('url');
+			$(this).parent().remove();
+			$.get(removeUrl,function(response){});
+			$(this).parent('div').empty();	
+			return false;
+		});		
+		
+	});
+	</script>		 
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

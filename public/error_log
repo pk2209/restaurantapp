@@ -1,0 +1,5 @@
+[02-Jan-2017 08:08:07 UTC] PHP Fatal error:  Class 'App\Http\Controllers\FaqsController' not found in /home2/pramodkr/public_html/staging/restaurentapp/storage/framework/views/5c825305fd3deaad8218ebc1f5c09df0(2) : eval()'d code on line 2
+[03-Jan-2017 08:43:48 UTC] PHP Fatal error:  Cannot access empty property in /home2/pramodkr/public_html/staging/restaurentapp/app/Http/Controllers/Controller.php on line 83
+[03-Jan-2017 10:01:03 UTC] PHP Fatal error:  Cannot access empty property in /home2/pramodkr/public_html/staging/restaurentapp/app/Http/Controllers/Controller.php on line 83
+[03-Jan-2017 12:33:14 UTC] PHP Fatal error:  Class 'App\Http\Controllers\FaqsController' not found in /home2/pramodkr/public_html/staging/restaurentapp/storage/framework/views/5c825305fd3deaad8218ebc1f5c09df0(2) : eval()'d code on line 2
+[03-Jan-2017 12:33:18 UTC] PHP Fatal error:  Class 'App\Http\Controllers\FaqsController' not found in /home2/pramodkr/public_html/staging/restaurentapp/storage/framework/views/5c825305fd3deaad8218ebc1f5c09df0(2) : eval()'d code on line 2
